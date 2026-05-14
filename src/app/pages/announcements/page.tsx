@@ -116,15 +116,15 @@ export default function Calendar() {
             </div>
 
             <div className="border border-gray-200 rounded-lg overflow-hidden">
-              <div className="grid grid-cols-7 sm:grid-cols-5 md:grid-cols-7 gap-2">
+              <div className="grid grid-cols-7 gap-2">
                 {WEEKDAYS.map((day) => (
-                  <div key={day} className="p-4 text-center bg-blue-500 text-white font-medium text-xs sm:text-sm md:text-base">
+                  <div key={day} className="p-2 text-center bg-blue-500 text-white font-medium text-xs sm:text-sm">
                     {day}
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-7 sm:grid-cols-5 md:grid-cols-7 gap-2">
+              <div className="grid grid-cols-7 gap-2">
                 {[...Array(firstDayOfMonth)].map((_, i) => (
                   <div key={`empty-${i}`} className="p-4 border-t border-r border-gray-200" />
                 ))}

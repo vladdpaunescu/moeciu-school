@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Nunito } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Scoala Gimnaziala Moieciu De Jos | Site Oficial",
-  description: "Scoala Gimnaziala Moieciu de Jos",
+  title: "Școala Gimnazială Moieciu de Jos | Site Oficial",
+  description: "Site-ul oficial al Școlii Gimnaziale Moieciu de Jos, județul Brașov.",
   icons: {
     icon: "/icon.png",
     shortcut: "/favicon.ico",
@@ -25,14 +27,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ro" data-scroll-behavior="smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ro">
+      <body className={`${playfair.variable} ${nunito.variable} antialiased`}>
         <Toaster />
         {children}
       </body>
