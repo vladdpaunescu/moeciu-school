@@ -43,8 +43,7 @@ export default function Calendar() {
       if (error) {
         console.error("Eroare la preluarea evenimentelor:", error)
       } else {
-        console.log("Evenimente preluate:", data)
-        setEvents(data.map((event) => ({ ...event, date: new Date(event.date) })))
+        setEvents((data ?? []).map((event) => ({ ...event, date: new Date(event.date) })))
       }
       setLoading(false)
     }

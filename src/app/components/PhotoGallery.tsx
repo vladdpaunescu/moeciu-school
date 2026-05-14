@@ -45,8 +45,9 @@ export default function PhotoGallery() {
               <Image
                 src={photos[currentIndex]}
                 alt={`School photo ${currentIndex + 1}`}
-                layout="fill"
-                objectFit="cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                style={{ objectFit: 'cover' }}
                 className="rounded-lg"
               />
             </motion.div>

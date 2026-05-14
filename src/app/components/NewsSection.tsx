@@ -1,6 +1,9 @@
+'use client';
+
 import { supabase } from "../../../lib/supabaseClient";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 type Post = {
   id: number;
   title: string;
@@ -9,7 +12,7 @@ type Post = {
   image_url: string;
 };
 
-export default function PostsPage() {
+export default function NewsSection() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -20,7 +23,7 @@ export default function PostsPage() {
       if (error) {
         console.error("Eroare la fetch:", error);
       } else {
-        setPosts(data);
+        setPosts(data ?? []);
       }
     };
 

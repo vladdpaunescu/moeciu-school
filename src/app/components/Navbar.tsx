@@ -36,6 +36,12 @@ export default function Navbar() {
           >
             Contact
           </Link>
+          <Link
+            href="/intranet/login"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-lg transition duration-300 font-medium"
+          >
+            Platformă
+          </Link>
         </div>
 
         {/* Hamburger icon for mobile */}
@@ -59,22 +65,28 @@ export default function Navbar() {
           Acasă
         </Link>
         <Link
-          href="/about"
+          href="/pages/about"
           className="block hover:text-black-600 transition duration-300"
         >
           Despre Noi
         </Link>
         <Link
-          href="/announcements"
+          href="/pages/announcements"
           className="block hover:text-black-600 transition duration-300"
         >
           Anunțuri
         </Link>
         <Link
-          href="/contact"
+          href="/pages/contact"
           className="block hover:text-black-600 transition duration-300"
         >
           Contact
+        </Link>
+        <Link
+          href="/intranet/login"
+          className="block bg-blue-600 text-white mx-auto w-fit px-4 py-1.5 rounded-lg transition duration-300 font-medium"
+        >
+          Platformă
         </Link>
       </div>
     </nav>
