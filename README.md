@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Școala Gimnazială Moieciu de Jos
+
+Official website for **Școala Gimnazială Moieciu de Jos**, a Romanian elementary school in Brașov County. The site is in Romanian and serves students, parents, and staff.
+
+## Tech Stack
+
+- **Next.js 15** (App Router) with TypeScript
+- **Tailwind CSS** + global CSS custom properties
+- **Supabase** — backend database and auth
+- **Framer Motion** — page transitions and animations
+- **React Leaflet** — interactive map on the contact page
 
 ## Getting Started
 
-First, run the development server:
+Create a `.env.local` file in the project root:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies and run the dev server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Commands
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev    # Development server
+npm run build  # Production build
+npm run start  # Start production server
+npm run lint   # ESLint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Path | Description |
+| --- | --- |
+| `/` | Homepage |
+| `/pages/about` | About the school |
+| `/pages/announcements` | News, posts & events calendar |
+| `/pages/contact` | Contact form + map |
+| `/intranet` | Staff/student intranet platform |
+| `/intranet/login` | Intranet login |
+| `/intranet/admin` | Admin dashboard |
+| `/intranet/teacher` | Teacher portal |
+| `/intranet/student` | Student portal |
 
-## Deploy on Vercel
+## Database (Supabase)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Table | Columns |
+| --- | --- |
+| `Post` | `id`, `title`, `date`, `content`, `image_url` |
+| `Events` | `id`, `date`, `name` |
+| `Contacts` | `name`, `email`, `message` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```text
+src/
+  app/
+    page.tsx              # Homepage
+    layout.tsx
+    globals.css           # Global styles + CSS custom properties
+    components/           # Shared components (Navbar, PageTransition, PhotoGallery, etc.)
+    pages/                # Public-facing pages (about, announcements, contact)
+    intranet/             # Intranet platform (login, admin, teacher, student)
+lib/
+  supabaseClient.ts       # Lazy proxy Supabase client
+public/                   # Static assets and gallery photos
+```
