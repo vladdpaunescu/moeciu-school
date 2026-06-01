@@ -4,24 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import { Users, GraduationCap, School } from 'lucide-react'
 
 const stats = [
-  { 
-    label: 'Elevi', 
-    value: 500,
-    icon: Users,
-    description: 'elevi înscriși'
-  },
-  { 
-    label: 'Profesori', 
-    value: 20,
-    icon: GraduationCap,
-    description: 'cadre didactice'
-  },
-  { 
-    label: 'Clase', 
-    value: 10,
-    icon: School,
-    description: 'săli de clasă'
-  },
+  { label: 'Elevi înscriși', value: 500, suffix: '+', icon: Users },
+  { label: 'Cadre didactice', value: 20, suffix: '+', icon: GraduationCap },
+  { label: 'Săli de clasă', value: 10, suffix: '', icon: School },
 ]
 
 export default function StatsSection() {
@@ -37,35 +22,30 @@ export default function StatsSection() {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     )
-
-    if (el) {
-      observer.observe(el)
-    }
-
-    return () => {
-      if (el) {
-        observer.unobserve(el)
-      }
-    }
+    if (el) observer.observe(el)
+    return () => { if (el) observer.unobserve(el) }
   }, [])
 
   return (
-    <section ref={sectionRef} className="section bg-gray-100" id="stats">
-      <div className="container">
-        <h2 className="section-title animate-on-scroll">Școala Noastră în Cifre</h2>
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className={`stat-item ${isVisible ? 'animate-on-scroll' : ''}`}
-              style={{ animationDelay: `${index * 400}ms` }}
-            >
-              <stat.icon className="stat-icon" />
-              <AnimatedCounter value={stat.value} duration={4000} isVisible={isVisible} />
-              <div className="stat-label">{stat.label}</div>
-              <p className="text-gray-600 text-sm">{stat.description}</p>
+    <section ref={sectionRef} className="py-16 bg-forest-700" id="stats">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-forest-500">
+          {stats.map((stat, i) => (
+            <div key={stat.label} className="flex flex-col items-center text-center py-6 sm:py-0 gap-3">
+              <stat.icon className="w-7 h-7 text-forest-300" />
+              <div className="font-playfair text-6xl font-bold text-white leading-none">
+                <AnimatedCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  duration={2000}
+                  isVisible={isVisible}
+                />
+              </div>
+              <p className="text-forest-300 text-sm font-medium tracking-wide uppercase font-nunito">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
@@ -74,24 +54,30 @@ export default function StatsSection() {
   )
 }
 
-function AnimatedCounter({ value, duration, isVisible }: { value: number; duration: number; isVisible: boolean }) {
+function AnimatedCounter({
+  value,
+  suffix,
+  duration,
+  isVisible,
+}: {
+  value: number
+  suffix: string
+  duration: number
+  isVisible: boolean
+}) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
     if (!isVisible) return
-
-    let startTimestamp: number | null = null
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+    let start: number | null = null
+    const step = (ts: number) => {
+      if (!start) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
       setCount(Math.floor(progress * value))
-      if (progress < 1) {
-        window.requestAnimationFrame(step)
-      }
+      if (progress < 1) window.requestAnimationFrame(step)
     }
     window.requestAnimationFrame(step)
   }, [value, duration, isVisible])
 
-  return <div className="stat-value">{count}</div>
+  return <span>{count}{suffix}</span>
 }
-
