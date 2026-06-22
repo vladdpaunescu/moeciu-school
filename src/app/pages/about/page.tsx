@@ -22,7 +22,7 @@ export default function Despre() {
               <div className="absolute inset-0 bg-black/55" />
               <div className="relative z-10 flex flex-col items-center">
                 <h1 className="hero-title">Despre Noi</h1>
-                <p className="hero-subtitle">&bdquo;Educa&#x21b;ia este cheia succesului!&rdquo;</p>
+                <p className="hero-subtitle">&bdquo;Educația este cheia succesului!&rdquo;</p>
               </div>
             </section>
 
@@ -30,22 +30,22 @@ export default function Despre() {
               <div className="text-content">
                 <h2 className="section-title">Cine Suntem?</h2>
                 <p className="section-text">
-                  &Scedil;coala Gimnazial&#x103; Moieciu de Jos este o institu&#x21b;ie educa&#x21b;ional&#x103;
-                  important&#x103; din comuna Moieciu, jude&#x21b;ul Bra&#x219;ov, care se remarc&#x103; prin
-                  performan&#x21b;ele elevilor s&#x103;i &#x219;i implicarea activ&#x103; a cadrelor didactice.
-                  Situat&#x103; &#xEE;n inima satului Moieciu de Jos, &#x219;coala ofer&#x103; educa&#x21b;ie de
-                  calitate pentru ciclul gimnazial &#x219;i se afl&#x103; &#xEE;ntr-o zon&#x103; pitoreasc&#x103;,
-                  cunoscut&#x103; pentru peisajele sale montane.
+                  Școala Gimnazială Moieciu de Jos este o instituție educațională
+                  importantă din comuna Moieciu, județul Brașov, care se remarcă prin
+                  performanțele elevilor săi și implicarea activă a cadrelor didactice.
+                  Situată în inima satului Moieciu de Jos, școala oferă educație de
+                  calitate pentru ciclul gimnazial și se află într-o zonă pitorească,
+                  cunoscută pentru peisajele sale montane.
                   <br /><br />
-                  &#xCE;n 2023, &Scedil;coala Gimnazial&#x103; Moieciu de Jos a ob&#x21b;inut rezultate deosebite
-                  la Evaluarea Na&#x21b;ional&#x103;, patru elevi reu&#x219;ind s&#x103; ob&#x21b;in&#x103; nota
-                  maxim&#x103; de 10. Aceste performan&#x21b;e au fost realizate la diferite discipline, trei
-                  dintre elevi av&#xE2;nd nota 10 la matematic&#x103; &#x219;i unul la limba &#x219;i literatura
-                  rom&#xE2;n&#x103;.
+                  În 2023, Școala Gimnazială Moieciu de Jos a obținut rezultate deosebite
+                  la Evaluarea Națională, patru elevi reușind să obțină nota
+                  maximă de 10. Aceste performanțe au fost realizate la diferite discipline, trei
+                  dintre elevi având nota 10 la matematică și unul la limba și literatura
+                  română.
                   <br /><br />
-                  Pe l&#xE2;ng&#x103; performan&#x21b;ele &#x219;colare, &#x219;coala se bucur&#x103; &#x219;i de
-                  un director activ &#xEE;n via&#x21b;a comunit&#x103;&#x21b;ii. Marius Olteanu, directorul
-                  &#x219;colii, &#xEE;n 2023, al&#x103;turi de echipa Rom&#xE2;niei, a c&#xE2;&#x219;tigat medalia
+                  Pe lângă performanțele școlare, școala se bucură și de
+                  un director activ în viața comunității. Marius Olteanu, directorul
+                  școlii, în 2023, alături de echipa României, a câștigat medalia
                   de bronz la Campionatele Europene de Atletism Masters din Pescara, Italia.
                 </p>
               </div>

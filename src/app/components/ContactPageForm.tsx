@@ -35,7 +35,7 @@ export default function ContactPageClient() {
                   </div>
                   <div className="flex items-center gap-2 mt-4 mb-4">
                     <MapPin className="w-5 h-5" />
-                    <span>Strada Principală 514, Moieciu de Jos, 507135, Braşov</span>
+                    <span>Strada Principală 514, Moieciu de Jos, 507135, Brașov</span>
                   </div>
                 </div>
                 <div className="footer-map mt-8">
